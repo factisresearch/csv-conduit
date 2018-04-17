@@ -784,6 +784,10 @@ instance Monoid.Monoid (Parser a) where
     mappend = mplus
     {-# INLINE mappend #-}
 
+instance Semigroup (Parser a) where
+    (<>) = mplus
+    {-# INLINE (<>) #-}
+
 apP :: Parser (a -> b) -> Parser a -> Parser b
 apP d e = do
   b <- d
